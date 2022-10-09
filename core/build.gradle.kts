@@ -36,6 +36,12 @@ kotlin {
 
     infra {
         target("linuxX64")
+        target("linuxArm64")
+        target("linuxArm32Hfp")
+        target("androidNativeArm32")
+        target("androidNativeArm64")
+        target("androidNativeX86")
+        target("androidNativeX64")
         target("mingwX64")
 
         common("darwin") {
@@ -153,7 +159,7 @@ kotlin {
         commonMain {
             dependencies {
                 api("org.jetbrains.kotlin:kotlin-stdlib-common")
-                compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+                compileOnly("org.danbrough.kotlinx:kotlinx-serialization-core:$serializationVersion")
             }
         }
 
@@ -178,7 +184,7 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 api("org.jetbrains.kotlin:kotlin-stdlib-js")
-                api("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+                api("org.danbrough.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation(npm("@js-joda/core", "3.2.0"))
             }
         }
@@ -192,7 +198,7 @@ kotlin {
         val nativeMain by getting {
             dependsOn(commonMain.get())
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+                api("org.danbrough.kotlinx:kotlinx-serialization-core:$serializationVersion")
             }
         }
 
