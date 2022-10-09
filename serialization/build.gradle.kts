@@ -15,6 +15,12 @@ java {
 kotlin {
     infra {
         target("linuxX64")
+        target("linuxArm64")
+        target("linuxArm32Hfp")
+        target("androidNativeArm64")
+        target("androidNativeArm32")
+        target("androidNativeX86")
+        target("androidNativeX64")
         target("mingwX64")
         target("macosX64")
         target("macosArm64")
@@ -78,7 +84,7 @@ kotlin {
         commonTest {
             dependencies {
                 api("org.jetbrains.kotlin:kotlin-test")
-                api("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+                api("org.danbrough.kotlinx:kotlinx-serialization-json:$serializationVersion")
             }
         }
 

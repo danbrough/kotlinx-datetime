@@ -34,6 +34,12 @@ kotlin {
 
     infra {
         target("linuxX64")
+	      target("linuxArm64")
+        target("linuxArm32Hfp")
+        target("androidNativeArm64")
+        target("androidNativeArm32")
+        target("androidNativeX86")
+        target("androidNativeX64")
         target("mingwX64")
 
         common("darwin") {
@@ -111,7 +117,8 @@ kotlin {
                 extraOpts("-Xsource-compiler-option", "-I$cinteropDir/public")
                 extraOpts("-Xsource-compiler-option", "-DONLY_C_LOCALE=1")
                 when {
-                    konanTarget.family == org.jetbrains.kotlin.konan.target.Family.LINUX -> {
+                    konanTarget.family == org.jetbrains.kotlin.konan.target.Family.ANDROID ||
+                        konanTarget.family == org.jetbrains.kotlin.konan.target.Family.LINUX -> {
                         // needed for the date library so that it does not try to download the timezone database
                         extraOpts("-Xsource-compiler-option", "-DUSE_OS_TZDB=1")
                         /* using a more modern C++ version causes the date library to use features that are not
@@ -147,7 +154,7 @@ kotlin {
         commonMain {
             dependencies {
                 api("org.jetbrains.kotlin:kotlin-stdlib-common")
-                compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+                compileOnly("org.danbrough.kotlinx:kotlinx-serialization-core:$serializationVersion")
             }
         }
 
@@ -172,7 +179,7 @@ kotlin {
         val jsMain by getting {
             dependencies {
                 api("org.jetbrains.kotlin:kotlin-stdlib-js")
-                api("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+                api("org.danbrough.kotlinx:kotlinx-serialization-core:$serializationVersion")
                 implementation(npm("@js-joda/core", "3.2.0"))
             }
         }
@@ -186,7 +193,7 @@ kotlin {
         val nativeMain by getting {
             dependsOn(commonMain.get())
             dependencies {
-                api("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+                api("org.danbrough.kotlinx:kotlinx-serialization-core:$serializationVersion")
             }
         }
 
