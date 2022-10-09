@@ -38,7 +38,7 @@ kotlin {
         target("linuxX64")
         target("linuxArm64")
         target("linuxArm32Hfp")
-        //target("androidNativeArm32")
+        target("androidNativeArm32")
         target("androidNativeArm64")
         target("androidNativeX86")
         target("androidNativeX64")
