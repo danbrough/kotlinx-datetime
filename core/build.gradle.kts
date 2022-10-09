@@ -38,7 +38,7 @@ kotlin {
         target("linuxX64")
         target("linuxArm64")
         target("linuxArm32Hfp")
-        target("androidNativeArm32")
+        //target("androidNativeArm32")
         target("androidNativeArm64")
         target("androidNativeX86")
         target("androidNativeX64")
@@ -123,7 +123,8 @@ kotlin {
                 extraOpts("-Xsource-compiler-option", "-I$cinteropDir/public")
                 extraOpts("-Xsource-compiler-option", "-DONLY_C_LOCALE=1")
                 when {
-                    konanTarget.family == org.jetbrains.kotlin.konan.target.Family.LINUX -> {
+                    konanTarget.family == org.jetbrains.kotlin.konan.target.Family.LINUX ||
+                        konanTarget.family == org.jetbrains.kotlin.konan.target.Family.ANDROID -> {
                         // needed for the date library so that it does not try to download the timezone database
                         extraOpts("-Xsource-compiler-option", "-DUSE_OS_TZDB=1")
                         /* using a more modern C++ version causes the date library to use features that are not

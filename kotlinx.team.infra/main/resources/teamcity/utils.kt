@@ -17,13 +17,14 @@ val platforms = Platform.values()
 const val jdk = "<<JDK>>"
 
 enum class Platform {
-    Windows, Linux, MacOS;
+    Windows, Linux, MacOS,Android;
 }
 
 fun Platform.nativeTaskPrefix(): String = when(this) {
     Platform.Windows -> "mingwX64"
     Platform.Linux -> "linuxX64"
     Platform.MacOS -> "macosX64"
+    Platform.Android -> "androidNative"
 }
 fun Platform.buildTypeName(): String = when (this) {
     Platform.Windows, Platform.Linux -> name

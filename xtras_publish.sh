@@ -10,9 +10,8 @@ cd $(dirname "$0")
 #export
 #export libs.sonatype.user=$SONATYPE_USER
 #export libs.sonatype.password=$SONATYPE_PASSWORD
-
-OPTS="-Plibs.repository.id=https://s01.oss.sonatype.org/service/local/staging/deployByRepositoryId/$SONATYPE_REPO_ID \
--Plibs.sonatype.user=$SONATYPE_USER  -Plibs.sonatype.password=$SONATYPE_PASSWORD"
+#OPTS="-Plibs.repository.id=https://s01.oss.sonatype.org/service/local/staging/deployByRepositoryId/$SONATYPE_REPO_ID \
+OPTS="-Plibs.repository.id=$SONATYPE_REPO_ID -Plibs.sonatype.user=$SONATYPE_USER  -Plibs.sonatype.password=$SONATYPE_PASSWORD"
 
 git submodule init
 git submodule update
