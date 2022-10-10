@@ -24,7 +24,7 @@ git submodule update
 if [ "$(uname)" = "Darwin" ]; then
   #need JAVA_HOME to be set
   export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home/
-  ./gradlew `cat mac_targets.txt `
+  ./gradlew $OPTS `cat mac_targets.txt `
   exit 0
 fi
 
