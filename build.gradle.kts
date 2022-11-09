@@ -19,6 +19,7 @@ val modularJavaToolchainVersion by ext(project.property("java.modularToolchainVe
 
 allprojects {
     repositories {
+        mavenLocal()
         mavenCentral()
     }
 }
