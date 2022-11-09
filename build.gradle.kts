@@ -1,5 +1,5 @@
 plugins {
-    id("kotlinx.team.infra") version "0.3.0-dev-64"
+    id("kotlinx.team.infra") version "0.3.0-danbrough"
     kotlin("multiplatform") apply false
 }
 
