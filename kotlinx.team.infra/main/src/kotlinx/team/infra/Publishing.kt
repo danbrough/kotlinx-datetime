@@ -360,6 +360,11 @@ private fun Project.createSonatypeRepository() {
                 credentials.password = password.trim()
             }
         }
+
+        publishing.repositories.maven { repo ->
+            repo.name = "M2"
+            repo.url = URI("file:///usr/local/kotlinxtras/build/m2")
+        }
     }
 }
 
