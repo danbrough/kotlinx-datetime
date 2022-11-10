@@ -436,7 +436,7 @@ private fun Project.sonatypeRepositoryUri(): URI {
         repositoryId == "auto" -> {
             // Using implicitly created staging, for MPP it's likely a mistake
             logger.warn("INFRA: using an implicitly created staging for ${project.rootProject.name}")
-            URI("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            URI("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/".also{println("Publishing to $it")})
         }
         else -> {
             URI("https://s01.oss.sonatype.org/service/local/staging/deployByRepositoryId/$repositoryId".also{println("Publishing to $it")})
